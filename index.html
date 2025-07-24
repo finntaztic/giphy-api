@@ -6,8 +6,35 @@
 </head>
 <body>
   <img src="#">
+  <input type="text" placeholder="Search..">
+  <button class="search">search</button>
+  <button onclick="window.location.reload()">new image</button>
   <script>
-      const img = document.querySelector('img');
+    //   const img = document.querySelector('img');
+    //     fetch('https://api.giphy.com/v1/gifs/translate?api_key=ChmajGa5JpHtwp403A0hTBGKa8rwApez&s=cats', {mode: 'cors'})
+    //         .then(function(response) {
+    //             return response.json();
+    //         })
+    //         .then(function(response) {
+    //             img.src = (response.data.images.original.url);
+    //         });
+    //every time the button search is clicked
+    //fetch the input
+    //replace the link with keyword
+
+    const searchBtn = document.querySelector ('button');
+    const input = document.querySelector ('input');
+
+    searchBtn.addEventListener('click', () => {
+        console.log(input.value);
+
+    function findGif (keyword){
+        const loadGifs = () => {
+            
+        }
+
+    }
+const img = document.querySelector('img');
         fetch('https://api.giphy.com/v1/gifs/translate?api_key=ChmajGa5JpHtwp403A0hTBGKa8rwApez&s=cats', {mode: 'cors'})
             .then(function(response) {
                 return response.json();
@@ -15,6 +42,11 @@
             .then(function(response) {
                 img.src = (response.data.images.original.url);
             });
+    })
+
+
+
+
 </script>
 
 </body>

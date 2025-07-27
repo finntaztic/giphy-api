@@ -10,42 +10,44 @@
   <button class="search">search</button>
   <button onclick="window.location.reload()">new image</button>
   <script>
-    //   const img = document.querySelector('img');
-    //     fetch('https://api.giphy.com/v1/gifs/translate?api_key=ChmajGa5JpHtwp403A0hTBGKa8rwApez&s=cats', {mode: 'cors'})
-    //         .then(function(response) {
-    //             return response.json();
-    //         })
-    //         .then(function(response) {
-    //             img.src = (response.data.images.original.url);
-    //         });
-    //every time the button search is clicked
-    //fetch the input
-    //replace the link with keyword
 
-    const searchBtn = document.querySelector ('button');
-    const input = document.querySelector ('input');
+function Giphy (){
+    const img = document.querySelector ('img');
+    const url = 'https://api.giphy.com/v1/gifs/translate?api_key=ChmajGa5JpHtwp403A0hTBGKa8rwApez&s=';
 
-    searchBtn.addEventListener('click', () => {
-        console.log(input.value);
+    const replaceURL = (keyword) => {
+        newURL = url.concat(keyword);
+        console.log(keyword);
+        console.log(newURL);
 
-    function findGif (keyword){
-        const loadGifs = () => {
-            
-        }
-
-    }
-const img = document.querySelector('img');
-        fetch('https://api.giphy.com/v1/gifs/translate?api_key=ChmajGa5JpHtwp403A0hTBGKa8rwApez&s=cats', {mode: 'cors'})
+        fetch(newURL, {mode: 'cors'})
             .then(function(response) {
                 return response.json();
             })
             .then(function(response) {
                 img.src = (response.data.images.original.url);
+            })
+            .catch(function(response) {
+                console.log('error');
             });
+    }
+
+    return {
+        replaceURL,
+    }
+}
+
+Giphy().replaceURL('bird'); //initialise gif
+
+function search (){
+    const input = document.querySelector('input');
+    const searchBtn = document.querySelector('button');
+    searchBtn.addEventListener('click', () => {
+        const newKeyword = input.value;
+        Giphy().replaceURL(newKeyword);
     })
-
-
-
+}
+search ();
 
 </script>
 
